@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+ body {
+    font-family: "Times New Roman (Headings CS)";
+    color:#282828;
+    margin: 0px;
+  }
+  
+  .nav-bar {
+    background: linear-gradient(-90deg, #84CF6A, #16C0B0);
+    height: 60px;
+    margin-bottom: 15px;
+  }
+
+  .content{
+    width: 25%;
+    box-sizing: border-box;
+    padding:0.5% 1% 1%;
+    background-color: #16C0B0;
+    box-shadow: 1px 1px 3px #000;
+    margin: 100px auto 0;
+    border-radius: 3px;
+  }
+  .inner{
+    box-sizing: border-box;
+    padding: 2% 1%;
+    box-shadow: 1px 1px 3px #84CF6A;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+  .row1{
+    height: 250px;
+    border-bottom: 1px solid rgb(210, 209, 209);
+    padding: 0 2%;
+  }
+  .btn{
+    width: 49%;
+    box-sizing: border-box;
+    padding: 3% 4%;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .next{
+    background-color: rgb(250, 183, 15);
+  }
+  .back{
+    background-color: black;
+  }
+  .again{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 3% 4%;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 3px;
+    background-color: teal;
+    cursor: pointer;
+  }
+  .number{
+    color: gray;
+    padding-right: 10px;
+  }
+  .farsi{
+    text-align: right;
+    direction: rtl;
+  }
+  .others{
+    margin-top: 20px;
+    border-top: 1px solid rgb(155, 154, 154);
+    display: grid;
+    grid-template-columns: 49.5% 49.5%;
+  }
+  .others span{
+    display: inline-block;
+    padding: 3%;
+    background-color: #dfdede;
+    margin: 2px 8px 2px 0;
+    font-weight: bold;
+  }
+  @media only screen and (max-width: 800px) {
+    .nav-bar {
+    display: none;
+  }
+  .content{
+    width: 99%;
+    margin: 0 auto 0;
+    height:inherit;
+  }
+}
+	</style>
+</head>
+<body>
+	<div id="app">
+    <div class="nav-bar"></div>
+		<div class="content">
+			<h1 style="color: white; text-align: center; text-shadow: 1px 1px 3px black;">زبانکده سخن</h1>
+			<div class="inner">
+				<div class="row1">
+					<h2><span class="number">{{number}}/{{total}}</span>{{word}}</h2>
+          <h2 v-if="show" class="farsi">{{meaning}}</h2>
+          <p class="others" v-if="show">
+            <span v-for="other in others">{{other}}</span v-for="other in others">
+          </p>
+				</div>
+				<div class="row2">
+					<button @click="back()" class="btn back">Back</button>
+					<button @click="next()" class="btn next">{{nextBtn}}</button>
+				</div>
+				<div class="row3">
+					<button class="again" @click="agian()">Again</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="./vue.js"></script>
+	<script src="./script.js"></script>
+</body>
+</html>
